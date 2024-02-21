@@ -2,7 +2,6 @@
 import csv
 
 pokemons = []
-
 # https://www.w3schools.com/python/python_file_handling.asp
 # https://www.w3schools.in/python/file-handling
 with open('pokemon.csv', newline='') as csv_file:
@@ -21,30 +20,51 @@ while True:
     print("3. Sort by Z-A")
     print("4. Search by text in name")
     print("5. Search by length of name")
-    print("6. Exit")
+    print("6. Check first 10 pokemons")
+    print("7. Check last 10 pokemons")
+    print("8. Exit")
 
     choice = input("Enter your choice (1-6): ")
 
     if choice == '1':
-        # https://www.w3schools.com/python/python_lists_access.asp
-        pass
+        seqnum = input("Please enter the number (0-799): ")
+        if float(seqnum) > 799:
+            print("")
+            print("There is no such pokemon with id",int(seqnum))
+        else:
+            print("")
+            print(pokemons[int(seqnum)])
+            pass
     elif choice == '2':
-        # https://www.w3schools.com/python/python_lists_sort.asp
+        pokemons.sort()
+        print(pokemons)
         pass
     elif choice == '3':
-        # https://www.w3schools.com/python/python_lists_sort.asp
+        pokemons.sort(reverse = True)
+        print(pokemons)
         pass
     elif choice == '4':
         # https://www.w3schools.com/python/python_lists_comprehension.asp
         # https://www.w3schools.com/python/ref_string_startswith.asp
+        text = input("Please enter the text: ")
+        Searchbytext = [x for x in pokemons if text in x]
+        print(Searchbytext)
         pass
     elif choice == '5':
-        # https://www.w3schools.com/python/python_lists_comprehension.asp
+        lengh = input("Please enter the lengh: ")
+        Searchbylengh = [x for x in pokemons if len(x) == int(lengh)]
+        print(Searchbylengh)
         pass
     elif choice == '6':
+        print(pokemons[:10])
+        pass
+    elif choice == '7':
+        print(pokemons[-10:-1])
+        pass
+    elif choice == '8':
         print("Exiting")
         break
     else:
-        print("Invalid choice, choose from 1 to 6")
+        print("Invalid choice, choose from 1 to 8")
 
     print("==========================")
