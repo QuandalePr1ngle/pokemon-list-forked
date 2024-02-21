@@ -1,6 +1,7 @@
 
 import csv
-
+num2 = 0
+num1 = 0
 pokemons = []
 # https://www.w3schools.com/python/python_file_handling.asp
 # https://www.w3schools.in/python/file-handling
@@ -62,6 +63,15 @@ while True:
         print(pokemons[-10:-1])
         pass
     elif choice == '8':
+        next = input("Press N to show next 10 pokemons (Press q to quit): ")
+        while next != "n":
+            if next == "n":
+                print(pokemons[0+num1:10+num2])
+                num1 = num1 + 10
+                num2 = num2 + 10
+            elif next == "q":
+                print("somethn")
+    elif choice == '9':
         print("Exiting")
         break
     else:
